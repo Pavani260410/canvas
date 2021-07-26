@@ -1,0 +1,19 @@
+body {
+    background-image: url('https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/H8WuRINimqur8ud/creativity-art-drawing-background_snrz9id7g_thumbnail-1080_05.png');
+    background-position: center;
+    background-size: cover;
+}
+
+h1 {
+    font-family: 'Baloo Chettan 2', cursive;
+    font-size: 55px;
+}
+
+canvas {
+    border: darkslategray 10px ridge;
+    background-color: lightcyan;
+    border-radius: 15px;
+    padding: 15px;
+    border-image: url('https://lh3.googleusercontent.com/proxy/HvewSu5z6Vd2pb3qOTzhjh7GBhO8M-lWso14w7Avsk167pHJtnBtnH0a1FZbnTIanPekKKYDbJy0GSg_J_0AtXhtaH8VQ97py_YVq91ebya4ZtXeiXcgXh688mvECi3psbszeUrIqKYtDWDJVevAq4z-g4Q') 30 round;
+
+}
