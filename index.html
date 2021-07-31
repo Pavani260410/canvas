@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>Canvas</title>
+</head>
+
+<body> 
+    <center>
+  <h1>Draw!</h1>
+     
+        <canvas id="canvas" height="300px" width="500px"></canvas><br>
+        <br><br>
+        <span>Radius - </span>
+        <input type="number" id="radius" value=20>&nbsp;&nbsp;&nbsp;
+        <span>Color - </span>
+        <input type="color" id="color">&nbsp;&nbsp;
+        <span>Width Of the line - </span>
+        <input type="number" id="width" value="2">
+        <br />
+        <button class="button" onclick="Clear()">Clear Canvas</button><br><br>
+      
+    </center>
+
+</body></html>
+<style>body{background-color:beige;}
+#canvas {
+    border: 30px solid;
+  background-color: white;
+  background-position: center;
+    background-size: cover;
+  border-image: url('https://lh3.googleusercontent.com/proxy/JPcDvQRB128JcQNzIbHtq-BDWw4M8Y0xNJ9kWFlyqfIqT3OFxyPVdHClOn3doDjkAG26Wha-vPbrZGE2TuLkmjI')50 round;
+ }
+
+.button {
+    font-size: 25px;
+    color: rgb(255, 0, 100);
+    background-color: beige;
+    transition-duration: 0.7s;
+  border: rgb(255, 0, 100) solid 2px;
+}
+
+.button:hover {
+    background-color: rgb(255, 0, 100);
+  color: beige;
+  border-color: beige;
+}h1{
+  font-size: 45px;
+  font-family: 'Roboto', sans-serif;
+}div{
+  background-color:whitesmoke;
+  width: 250px;
+  height: 90px;
+  text-align: left;
+}</style>
+<script>canvas = document.getElementById("canvas");
+ctx = canvas.getContext("2d");
+var mouseEvent = "";
+var color;
+var width;
+var radius;
+var randomm = false;
+var size = [500, 500];
+canvas.addEventListener("mousedown", mouse_down);
+
+function mouse_down() {
+    color = document.getElementById("color").value;
+    radius = document.getElementById("radius").value;
+    width = document.getElementById("width").value;
+    mouseEvent = "mouseDown";
+
+}
+
+canvas.addEventListener("mousemove", mouse_move);
+
+function mouse_move(e) {
+    currentmouse_x = e.clientX - canvas.offsetLeft;
+    currentmouse_y = e.clientY - canvas.offsetTop;
+
+    if (mouseEvent == "mouseDown") {
+        console.log("Current position of x and y coordinates = " + currentmouse_x + " " + currentmouse_y);
+        ctx.beginPath();
+        ctx.strokeStyle = color;
+        ctx.lineWidth = width;
+        ctx.arc(currentmouse_x, currentmouse_y, radius, 0, 2 * Math.PI);
+        ctx.stroke();
+    }
+
+}
+canvas.addEventListener("mouseup", mouse_up);
+
+function mouse_up() {
+    mouseEvent = "mouseUp"
+}
+
+function Clear() {
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+}</script>
